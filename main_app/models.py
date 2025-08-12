@@ -1,3 +1,5 @@
+import uuid
+
 from django.contrib.auth.base_user import AbstractBaseUser
 from django.db import models
 
@@ -20,6 +22,9 @@ class User(AbstractBaseUser):
         max_length=30,
         verbose_name='last name',
     )
+    is_verified = models.BooleanField(default=False, verbose_name='verified')
+    verification_uuid = models.UUIDField(default=uuid.uuid4, verbose_name='verification uuid')
+
     objects = UserAccountManager()
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['first_name', 'last_name']

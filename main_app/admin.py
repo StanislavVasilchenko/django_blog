@@ -1,8 +1,7 @@
 from django.contrib import admin
+from main_app.models import User
 
-from publish.models import Post
 
-
-@admin.register(Post)
-class PostAdmin(admin.ModelAdmin):
+@admin.register(User)
+class UserAdmin(admin.ModelAdmin):
     pass
